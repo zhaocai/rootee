@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
+require 'optparse'
+load "rootee"
+
+def parse_opt()
+  options = {:from => Dir.getwd}
+
+  optparse = OptionParser.new do |opts|
+
+    opts.on('-f', "--from [PATH]",
+            "Search project root path from PATH") do |p|
+      options[:from] = t
+    end
+
+    opts.on('-h', '--help', 'Help Message') do
+      puts opts
+      exit
+    end
+  end
+
+  # parse and check mandatory options
+  begin
+    optparse.parse!
+    mandatory = []
+    missing = mandatory.select{ |param| options[param].nil? }
+    if not missing.empty?
+      puts "Missing options: #{missing.join(', ')}"
+      puts optparse
+      exit
+    end
+  rescue OptionParser::InvalidOption, OptionParser::MissingArgument
+    puts $!.to_s
+    puts optparse
+    exit
+  end
+
+  return options
+end
+
+
+
+
+options = parse_opt()
+
+rootee = Rootee.new()
+is_find, root = rootee.find_root(options[:from])
+if is_find
+  puts root
+  exit(0)
+else
+  puts options[:from]
+  exit(-1)
+end
+
+
+# ~~ modeline  ~~ [[[1 -------------------------------------------------------
+# vim: set ft=ruby ts=2 sw=2 tw=78 fdm=syntax fmr=[[[,]]] fdl=1 :
+
+
