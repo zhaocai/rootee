@@ -7,7 +7,7 @@
 # HomePage       : https://github.com/zhaocai/rootee
 # Version        : 0.1
 # Date Created   : Fri 22 Mar 2013 11:09:31 PM EDT
-# Last Modified  : Fri 22 Mar 2013 11:10:57 PM EDT
+# Last Modified  : Fri 22 Mar 2013 11:27:47 PM EDT
 # Tag            : [ ruby, project, path ]
 # Copyright      : © 2013 by Zhao Cai,
 #                  Released under current GPL license.
@@ -16,6 +16,8 @@
 require 'pathname'
 
 class Rootee
+  VERSION = "1.0.0"
+
   attr_accessor :marker
   attr_accessor :end_path
 
