@@ -2,7 +2,7 @@
 
 require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
 require 'optparse'
-load "rootee"
+require "rootee"
 
 def parse_opt()
   options = {:from => Dir.getwd}
