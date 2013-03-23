@@ -7,7 +7,7 @@
 
 This short script tries to find project root path based on common source control directory structure and project related files.
 
-It is not 100% accurately but works for most common cases.
+It is not 100% accurate but works for most common cases.
 
 ## INSTALLATION:
 
@@ -19,15 +19,15 @@ It is not 100% accurately but works for most common cases.
 
 To quickly jump to current project root in the shell. Add an alias to your zshrc or bshrc.
 ```sh
-alias r='cd `rootee`'
+alias r='cd "`rootee`"'   # cd project root
 ```
 
 ### 2. Launch Source Management Tool
 
 To quickly launch Source Tree, for example.
 ```sh
-st () {
-    open -a SourceTree ${1:-`rootee`}
+st (){
+    open -a SourceTree "${1:-`rootee`}"
 }
 ```
 
