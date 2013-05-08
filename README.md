@@ -1,4 +1,4 @@
-# openmeta.rb
+# rootee
 
 * https://github.com/zhaocai/rootee
 
